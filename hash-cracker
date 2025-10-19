@@ -1,0 +1,25 @@
+# Hash Cracker kita menggunakan approach tools hashcat
+
+# Dalam hashcat, bisa kita gunakan kode sebagai berikut:
+
+1. Untuk melakukan check possibility hash
+- Template: hashcat.exe –-show [namaFile].txt
+
+- Implementasi:
+
+  a. hash 1
+hashcat.exe –-show thehashesone.txt
+
+  b. hash 2
+hashcat.exe –-show thehashestwo.txt
+
+2. Eksekusi untuk solve hash
+- Template: hashcat.exe -a [attack mode] -m [hash type] -w [workload (opsional)] -O (optimized kernel) [hash file].txt [wordlist file].txt
+
+- Implementasi:
+
+  a. hash 1 (Keccak-256 Solver)
+hashcat.exe -a 0 -m 17800 -w 3 -O thehashesone.txt rockyou.txt
+
+  b. hash 2 (MD5 Solver)
+hashcat.exe -a 0 -m 0 -w 3 -O thehashestwo.txt rockyou.txt
